@@ -1,5 +1,19 @@
 # @stackory/backend-hono
 
+## 1.1.0
+
+### Minor Changes
+
+- d35e9e7: Sync Version
+
+### Patch Changes
+
+- Updated dependencies [d35e9e7]
+  - @stackory/backend-platform@1.1.0
+  - @stackory/backend-utils@1.1.0
+  - @stackory/constants@1.1.0
+  - @stackory/utils@1.1.0
+
 ## 1.0.1
 
 ### Patch Changes
