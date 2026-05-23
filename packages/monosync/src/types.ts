@@ -18,6 +18,7 @@ export type NormalizedVersionSpec = {
 export type MonosyncConfigOptions = {
 	registry?: string;
 	minAgeDays?: number;
+	minAgeDaysIgnores?: string[];
 	retries?: number;
 	allowDowngrade?: boolean;
 };
