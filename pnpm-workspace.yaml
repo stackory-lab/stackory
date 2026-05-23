@@ -14,6 +14,10 @@ packages:
   - packages/backend/utils
   - packages/backend/platform-cloudflare
   - packages/backend/hono
+  - packages/contracts
+  - packages/storage
+  - packages/auth/core
+  - packages/auth/better-auth
 
 minimumReleaseAge: 1440
 blockExoticSubdeps: true
