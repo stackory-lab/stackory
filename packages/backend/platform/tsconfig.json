@@ -1,0 +1,16 @@
+{
+	"extends": "@infra/tsconfig-presets/hono.json",
+	"compilerOptions": {
+		"types": [
+			"@infra/types/base-web-standard"
+		],
+		"paths": {
+			"~/*": [
+				"./src/*"
+			]
+		}
+	},
+	"include": [
+		"./"
+	]
+}

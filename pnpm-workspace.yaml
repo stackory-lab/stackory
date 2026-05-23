@@ -7,8 +7,15 @@ packages:
   - packages/ui-ink
   - packages/signals/core
   - packages/signals/posthog
+  - packages/web-global-types
+  - packages/utils
+  - packages/constants
+  - packages/backend/platform
+  - packages/backend/utils
+  - packages/backend/platform-cloudflare
+  - packages/backend/hono
 
-# minimumReleaseAge: 1440
+minimumReleaseAge: 1440
 blockExoticSubdeps: true
 allowBuilds:
   core-js: false
