@@ -1,5 +1,11 @@
 # @stackory/ui-web
 
+## 2.1.0
+
+### Minor Changes
+
+- d35e9e7: Sync Version
+
 ## 2.0.0
 
 ### Major Changes

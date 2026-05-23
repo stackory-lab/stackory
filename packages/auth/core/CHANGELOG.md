@@ -1,5 +1,16 @@
 # @stackory/auth-core
 
+## 1.1.0
+
+### Minor Changes
+
+- d35e9e7: Sync Version
+
+### Patch Changes
+
+- Updated dependencies [d35e9e7]
+  - @stackory/contracts@1.1.0
+
 ## 1.0.0
 
 ### Major Changes
