@@ -1,0 +1,61 @@
+{
+  "name": "@stackory/storage",
+  "version": "0.0.1",
+  "exports": {
+    "./memory": {
+      "import": {
+        "types": "./dist/esm/memory.d.ts",
+        "default": "./dist/esm/memory.js"
+      },
+      "require": {
+        "types": "./dist/cjs/memory.d.ts",
+        "default": "./dist/cjs/memory.js"
+      }
+    },
+    "./web": {
+      "import": {
+        "types": "./dist/esm/web/index.d.ts",
+        "default": "./dist/esm/web/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/web/index.d.ts",
+        "default": "./dist/cjs/web/index.js"
+      }
+    },
+    "./node": {
+      "import": {
+        "types": "./dist/esm/node/index.d.ts",
+        "default": "./dist/esm/node/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/node/index.d.ts",
+        "default": "./dist/cjs/node/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build:memory": "tsc -p tsconfig.cjs.json && tsc -p tsconfig.esm.json",
+    "build:web": "tsc -p src/web/tsconfig.cjs.json && tsc -p src/web/tsconfig.esm.json",
+    "build:node": "tsc -p src/node/tsconfig.cjs.json && tsc -p src/node/tsconfig.esm.json",
+    "build": "rimraf ./dist && pnpm run build:memory && pnpm run build:web && pnpm run build:node",
+    "clean": "rimraf ./node_modules dist",
+    "check:lint": "biome check --write",
+    "check:type": "tsc -p ./tsconfig.json --noEmit && tsc -p ./src/web/tsconfig.json --noEmit && tsc -p ./src/node/tsconfig.json --noEmit",
+    "check:dep": "depcruise --config .dependency-cruiser.mjs src"
+  },
+  "dependencies": {
+    "@stackory/contracts": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "25.8.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/j-xzy/stackory",
+    "directory": "packages/storage"
+  }
+}

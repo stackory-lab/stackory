@@ -9,6 +9,8 @@
 		"@stackory/backend-utils": "workspace:*",
 		"@stackory/utils": "workspace:*",
 		"@stackory/constants": "workspace:*",
+		"@stackory/contracts": "workspace:*",
+		"@stackory/storage": "workspace:*",
 		"@sentry/cloudflare": "10.53.1",
 		"hono": "4.12.18",
 		"semver": "7.8.0",

@@ -1,0 +1,8 @@
+{
+	"extends": "@infra/tsconfig-presets/base.json",
+	"compilerOptions": {
+		"lib": ["ESNext"],
+		"types": ["node"]
+	},
+	"include": ["./index.ts"]
+}

@@ -1,0 +1,10 @@
+{
+	"extends": "@infra/tsconfig-presets/lib.cjs.json",
+	"compilerOptions": {
+		"outDir": "../../dist/cjs/web",
+		"rootDir": "./",
+		"lib": ["ESNext", "DOM"]
+	},
+	"include": ["./index.ts"],
+	"exclude": ["**/*spec.ts", "**/*test.ts"]
+}

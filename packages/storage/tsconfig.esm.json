@@ -1,0 +1,10 @@
+{
+	"extends": "@infra/tsconfig-presets/lib.esm.json",
+	"compilerOptions": {
+		"outDir": "./dist/esm",
+		"rootDir": "./src",
+		"lib": ["ESNext"]
+	},
+	"include": ["./src/memory.ts"],
+	"exclude": ["node_modules", "dist", "**/*spec.ts", "**/*test.ts"]
+}
