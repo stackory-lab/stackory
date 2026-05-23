@@ -1,5 +1,11 @@
 # @stackory/monosync
 
+## 1.0.2
+
+### Patch Changes
+
+- b71eb61: Unused dependency
+
 ## 1.0.1
 
 ### Patch Changes
