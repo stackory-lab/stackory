@@ -1,4 +1,3 @@
-import type { OAuthClient } from '@better-auth/oauth-provider';
 import { oauthProviderClient } from '@better-auth/oauth-provider/client';
 import { createAuthClient } from 'better-auth/client';
 import { unwrapBetterAuthResponse } from '../better-auth-client-error';
@@ -6,6 +5,18 @@ import { unwrapBetterAuthResponse } from '../better-auth-client-error';
 export interface ICreateSessionActionsParams {
 	baseURL?: string;
 	basePath?: string;
+}
+
+/**
+ * Portable local mirror of the fields actually consumed from OAuthClient
+ * (@better-auth/oauth-provider). Using a local interface here prevents TS2742
+ * ("inferred type cannot be named") in consumer packages that don't have
+ * @better-auth/oauth-provider as a direct dependency.
+ */
+export interface IOAuthClientPublic {
+	client_id?: string | null;
+	client_name?: string | null;
+	logo_uri?: string | null;
 }
 
 /**
@@ -28,12 +39,14 @@ export const createSessionActions = ({
 	});
 
 	return {
-		getOAuthClientPublic: async (clientId: string) => {
+		getOAuthClientPublic: async (
+			clientId: string,
+		): Promise<IOAuthClientPublic> => {
 			const result = await client.oauth2.publicClient({
 				query: { client_id: clientId },
 			});
 
-			return unwrapBetterAuthResponse<OAuthClient>(
+			return unwrapBetterAuthResponse<IOAuthClientPublic>(
 				result,
 				'Failed to load OAuth client',
 			);

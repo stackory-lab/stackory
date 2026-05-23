@@ -64,11 +64,19 @@ export function printSummary(
 		}
 	}
 
+	if (checkResult.unusedDeps.length) {
+		lines.push(`\n  unused config entries  (${checkResult.unusedDeps.length})`);
+		for (const dep of checkResult.unusedDeps) {
+			lines.push(`    [${dep.section}] ${dep.name}`);
+		}
+	}
+
 	if (
 		!autoResult?.updated.length &&
 		!autoResult?.failed.length &&
 		!checkResult.changes.length &&
-		!checkResult.errors.length
+		!checkResult.errors.length &&
+		!checkResult.unusedDeps.length
 	) {
 		lines.push('\n  (no changes)');
 	}

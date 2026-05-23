@@ -1,2 +1,5 @@
-export type { ICreateSessionActionsParams } from './actions';
+export type {
+	ICreateSessionActionsParams,
+	IOAuthClientPublic,
+} from './actions';
 export { createSessionActions } from './actions';
