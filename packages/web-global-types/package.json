@@ -1,6 +1,6 @@
 {
 	"name": "@stackory/web-global-types",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"types": "index.d.ts",
 	"files": [
 		"index.d.ts"
