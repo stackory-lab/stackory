@@ -19,6 +19,7 @@ minimumReleaseAge: 1440
 blockExoticSubdeps: true
 allowBuilds:
   core-js: false
+  esbuild: false
   msw: false
   nx: false
   protobufjs: false
