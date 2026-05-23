@@ -1,4 +1,4 @@
-import type { IStorage } from '@common/core-port';
+import type { IStorage } from '@stackory/contracts';
 
 export interface IWebStorageOptions {
 	prefix?: string;

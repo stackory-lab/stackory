@@ -1,6 +1,6 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname } from 'node:path';
-import type { IStorage } from '@common/core-port';
+import type { IStorage } from '@stackory/contracts';
 
 const read = (filePath: string): Record<string, unknown> => {
 	try {
