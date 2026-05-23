@@ -1,0 +1,35 @@
+{
+  "name": "@stackory/backend-hono",
+  "version": "0.0.1",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rimraf ./dist && tsc --project tsconfig.build.json",
+    "clean": "rimraf ./node_modules dist",
+    "check:test": "vitest --watch=false",
+    "check:lint": "biome check --write",
+    "check:type": "tsc -p ./tsconfig.build.json --noEmit",
+    "check:dep": "depcruise --config .dependency-cruiser.mjs src"
+  },
+  "dependencies": {
+    "@stackory/backend-platform": "workspace:*",
+    "@stackory/backend-utils": "workspace:*",
+    "@stackory/utils": "workspace:*",
+    "@stackory/constants": "workspace:*",
+    "hono": "4.12.18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/j-xzy/stackory",
+    "directory": "packages/backend/hono"
+  }
+}

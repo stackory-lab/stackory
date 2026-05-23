@@ -1,0 +1,21 @@
+{
+	"name": "@stackory/web-global-types",
+	"version": "0.0.1",
+	"types": "index.d.ts",
+	"files": [
+		"index.d.ts"
+	],
+	"exports": {
+		".": {
+			"types": {
+				"default": "./index.d.ts"
+			}
+		},
+		"./package.json": "./package.json"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/j-xzy/stackory",
+		"directory": "packages/web-global-types"
+	}
+}

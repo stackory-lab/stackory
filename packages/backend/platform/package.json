@@ -1,0 +1,25 @@
+{
+  "name": "@stackory/backend-platform",
+  "version": "0.0.1",
+  "exports": {
+    ".": {
+      "types": "./dist/esm/index.d.ts",
+      "import": "./dist/esm/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rimraf ./dist && tsc --project tsconfig.build.json",
+    "clean": "rimraf ./node_modules dist",
+    "check:lint": "biome check --write",
+    "check:type": "tsc -p ./tsconfig.build.json --noEmit",
+    "check:dep": "depcruise --config .dependency-cruiser.mjs src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/j-xzy/stackory",
+    "directory": "packages/backend/platform"
+  }
+}

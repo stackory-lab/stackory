@@ -1,0 +1,36 @@
+{
+  "name": "@stackory/backend-platform-cloudflare",
+  "types": "./dist/esm/index.d.ts",
+  "version": "0.0.1",
+  "exports": {
+    ".": {
+      "types": "./dist/esm/index.d.ts",
+      "import": "./dist/esm/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rimraf ./dist && tsc --project tsconfig.build.json",
+    "clean": "rimraf ./node_modules dist",
+    "check:test": "vitest --watch=false",
+    "check:lint": "biome check --write",
+    "check:type": "tsc -p ./tsconfig.build.json --noEmit",
+    "check:dep": "depcruise --config .dependency-cruiser.mjs src"
+  },
+  "dependencies": {
+    "@sentry/cloudflare": "10.53.1",
+    "@stackory/backend-platform": "workspace:*",
+    "@stackory/constants": "workspace:*",
+    "@stackory/backend-utils": "workspace:*"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "4.20260516.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/j-xzy/stackory",
+    "directory": "packages/backend/platform-cloudflare"
+  }
+}

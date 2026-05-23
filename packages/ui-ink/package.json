@@ -10,14 +10,14 @@
     "check:dep": "depcruise --config .dependency-cruiser.mjs registry"
   },
   "dependencies": {
-    "ink": "7.0.2",
+    "ink": "7.0.3",
     "react": "19.2.6",
     "string-width": "8.2.1"
   },
   "devDependencies": {
     "shadcn": "4.7.0",
     "@types/react": "19.2.14",
-    "@types/node": "25.7.0"
+    "@types/node": "25.8.0"
   },
   "repository": {
     "type": "git",
