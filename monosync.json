@@ -11,6 +11,8 @@
 		"@stackory/constants": "workspace:*",
 		"@stackory/contracts": "workspace:*",
 		"@stackory/storage": "workspace:*",
+		"@stackory/auth-core": "workspace:*",
+		"@stackory/auth-better-auth": "workspace:*",
 		"@sentry/cloudflare": "10.53.1",
 		"hono": "4.12.18",
 		"semver": "7.8.0",
@@ -26,7 +28,10 @@
 		"ink": "7.0.3",
 		"string-width": "8.2.1",
 		"posthog-js": "1.373.5",
-		"posthog-node": "5.34.2"
+		"posthog-node": "5.34.2",
+		"@better-auth/oauth-provider": "1.6.11",
+		"better-auth": "1.6.11",
+		"zod": "4.4.3"
 	},
 	"devDependencies": {
 		"@infra/types": "workspace:*",

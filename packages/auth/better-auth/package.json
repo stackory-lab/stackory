@@ -1,0 +1,100 @@
+{
+  "name": "@stackory/auth-better-auth",
+  "version": "0.0.1",
+  "exports": {
+    "./config": {
+      "import": {
+        "types": "./dist/esm/shared/config.d.ts",
+        "default": "./dist/esm/shared/config.js"
+      },
+      "require": {
+        "types": "./dist/cjs/shared/config.d.ts",
+        "default": "./dist/cjs/shared/config.js"
+      }
+    },
+    "./client": {
+      "import": {
+        "types": "./dist/esm/client/index.d.ts",
+        "default": "./dist/esm/client/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/client/index.d.ts",
+        "default": "./dist/cjs/client/index.js"
+      }
+    },
+    "./client/pkce": {
+      "import": {
+        "types": "./dist/esm/client/pkce/index.d.ts",
+        "default": "./dist/esm/client/pkce/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/client/pkce/index.d.ts",
+        "default": "./dist/cjs/client/pkce/index.js"
+      }
+    },
+    "./client/device": {
+      "import": {
+        "types": "./dist/esm/client/device/index.d.ts",
+        "default": "./dist/esm/client/device/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/client/device/index.d.ts",
+        "default": "./dist/cjs/client/device/index.js"
+      }
+    },
+    "./client/session": {
+      "import": {
+        "types": "./dist/esm/client/session/index.d.ts",
+        "default": "./dist/esm/client/session/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/client/session/index.d.ts",
+        "default": "./dist/cjs/client/session/index.js"
+      }
+    },
+    "./client-plugins": {
+      "import": {
+        "types": "./dist/esm/client-plugins/index.d.ts",
+        "default": "./dist/esm/client-plugins/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/client-plugins/index.d.ts",
+        "default": "./dist/cjs/client-plugins/index.js"
+      }
+    },
+    "./server-plugins": {
+      "import": {
+        "types": "./dist/esm/server-plugins/index.d.ts",
+        "default": "./dist/esm/server-plugins/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/server-plugins/index.d.ts",
+        "default": "./dist/cjs/server-plugins/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "rimraf ./dist && tsc --project tsconfig.cjs.json && tsc --project tsconfig.esm.json",
+    "clean": "rimraf ./node_modules dist",
+    "check:lint": "biome check --write",
+    "check:type": "tsc -p ./tsconfig.esm.json --noEmit",
+    "check:test": "vitest --watch=false",
+    "check:dep": "depcruise --config .dependency-cruiser.mjs src"
+  },
+  "dependencies": {
+    "@better-auth/oauth-provider": "1.6.11",
+    "@stackory/auth-core": "workspace:*",
+    "@stackory/contracts": "workspace:*",
+    "better-auth": "1.6.11",
+    "zod": "4.4.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/j-xzy/stackory",
+    "directory": "packages/auth/better-auth"
+  }
+}
