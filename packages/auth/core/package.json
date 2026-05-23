@@ -30,7 +30,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/j-xzy/stackory",
+    "url": "https://github.com/stackory-lab/stackory",
     "directory": "packages/auth/core"
   }
 }

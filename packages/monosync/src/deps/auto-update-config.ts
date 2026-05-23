@@ -85,9 +85,15 @@ export async function autoUpdateConfig(
 	const packageNames = listDependencyNames(dependencies, devDependencies);
 	const options = config.config ?? {};
 	const minAgeDays = options.minAgeDays ?? 0;
+	const minAgeDaysIgnorePatterns = (options.minAgeDaysIgnores ?? []).map(
+		(p) => new RegExp(p),
+	);
 	const maxRetries = options.retries ?? 2;
 	const registry = options.registry ?? 'https://registry.npmjs.org';
 	const allowDowngrade = options.allowDowngrade ?? false;
+
+	const resolveMinAgeDays = (name: string): number =>
+		minAgeDaysIgnorePatterns.some((re) => re.test(name)) ? 0 : minAgeDays;
 	const oldVersions = Object.fromEntries(
 		packageNames.map((name) => [name, getExistingVersion(config, name)]),
 	) as Record<string, string | null>;
@@ -104,7 +110,11 @@ export async function autoUpdateConfig(
 	) {
 		const fetched = await Promise.all(
 			pending.map((index) =>
-				getAgedVersion(packageNames[index], minAgeDays, registry),
+				getAgedVersion(
+					packageNames[index],
+					resolveMinAgeDays(packageNames[index]),
+					registry,
+				),
 			),
 		);
 		const nextPending: number[] = [];

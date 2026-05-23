@@ -31,6 +31,7 @@ Options:
   "config": {
     "registry": "https://registry.npmjs.org",
     "minAgeDays": 7,
+    "minAgeDaysIgnores": ["^@stackory/"],
     "retries": 2,
     "allowDowngrade": false
   },
@@ -38,6 +39,14 @@ Options:
   "devDependencies": {}
 }
 ```
+
+| Field | Default | Description |
+|---|---|---|
+| `registry` | `https://registry.npmjs.org` | npm registry URL |
+| `minAgeDays` | `0` | Only upgrade to versions published at least N days ago |
+| `minAgeDaysIgnores` | `[]` | Regex patterns — matching packages skip `minAgeDays` and always use `latest` |
+| `retries` | `2` | Retry count for failed registry fetches |
+| `allowDowngrade` | `false` | Allow version downgrades when auto-updating |
 
 Dependency values can be strings, locked objects, or arrays:
 
