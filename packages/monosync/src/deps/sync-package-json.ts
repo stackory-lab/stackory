@@ -8,6 +8,7 @@ import type {
 	PackageChange,
 	PackageJson,
 	SyncPackageJsonResult,
+	UnusedDep,
 	VersionSpec,
 } from '../types.js';
 import { readPackages } from '../workspace/read-packages.js';
@@ -121,11 +122,20 @@ export function syncPackageJson({
 		devDependencies,
 	);
 	const changes: PackageChange[] = [];
+	const usedDeps = new Set<string>();
+	const usedDevDeps = new Set<string>();
 
 	for (const workspacePackage of Object.values(packages)) {
 		const packageJsonPath = path.join(workspacePackage.path, 'package.json');
 		const packageJson = readPackageJson(packageJsonPath);
 		const newPackageJson = { ...packageJson };
+
+		for (const name of Object.keys(packageJson.devDependencies ?? {})) {
+			usedDevDeps.add(name);
+		}
+		for (const name of Object.keys(packageJson.dependencies ?? {})) {
+			usedDeps.add(name);
+		}
 
 		syncSection({
 			section: 'devDependencies',
@@ -153,6 +163,15 @@ export function syncPackageJson({
 		});
 	}
 
+	const unusedDeps: UnusedDep[] = [
+		...Object.keys(dependencies)
+			.filter((name) => !usedDeps.has(name))
+			.map((name) => ({ name, section: 'dependencies' as const })),
+		...Object.keys(devDependencies)
+			.filter((name) => !usedDevDeps.has(name))
+			.map((name) => ({ name, section: 'devDependencies' as const })),
+	];
+
 	if (write && errors.length === 0) {
 		for (const item of packageJsons) {
 			writeFileSync(
@@ -162,5 +181,5 @@ export function syncPackageJson({
 		}
 	}
 
-	return { changes, errors };
+	return { changes, errors, unusedDeps };
 }

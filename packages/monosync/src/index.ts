@@ -22,6 +22,7 @@ export type {
 	SyncOptions,
 	SyncPackageJsonResult,
 	SyncResult,
+	UnusedDep,
 	VersionSpec,
 	VersionSpecEntry,
 	WorkspacePackage,

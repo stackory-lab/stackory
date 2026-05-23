@@ -66,9 +66,15 @@ export type AutoUpdateResult = {
 	failed: string[];
 };
 
+export type UnusedDep = {
+	name: string;
+	section: 'dependencies' | 'devDependencies';
+};
+
 export type SyncPackageJsonResult = {
 	changes: PackageChange[];
 	errors: MonosyncError[];
+	unusedDeps: UnusedDep[];
 };
 
 export type SyncOptions = {
