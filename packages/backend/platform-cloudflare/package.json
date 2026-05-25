@@ -26,7 +26,7 @@
     "@stackory/backend-utils": "workspace:*"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "4.20260516.1"
+    "@cloudflare/workers-types": "4.20260518.1"
   },
   "repository": {
     "type": "git",

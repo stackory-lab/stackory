@@ -25,7 +25,7 @@
     "@stackory/backend-utils": "workspace:*",
     "@stackory/utils": "workspace:*",
     "@stackory/constants": "workspace:*",
-    "hono": "4.12.18"
+    "hono": "4.12.19"
   },
   "repository": {
     "type": "git",
