@@ -23,6 +23,9 @@ async function createFixture() {
 		devDependencies: {
 			bar: '3.0.0',
 		},
+		peerDependencies: {
+			peer: '>=1.0.0 <2',
+		},
 	});
 	writeJson(path.join(root, 'package.json'), {
 		name: 'root',
@@ -36,6 +39,9 @@ async function createFixture() {
 		dependencies: {
 			foo: '1.0.0',
 			locked: '1.0.0',
+		},
+		peerDependencies: {
+			peer: '>=1.0.0 <1.5.0',
 		},
 	});
 	return { root, packageJsonPath };
@@ -57,6 +63,13 @@ describe('syncPackageJson', () => {
 			},
 			{
 				file: packageJsonPath,
+				name: 'peer',
+				from: '>=1.0.0 <1.5.0',
+				to: '>=1.0.0 <2',
+				section: 'peerDependencies',
+			},
+			{
+				file: packageJsonPath,
 				name: 'foo',
 				from: '1.0.0',
 				to: '2.0.0',
@@ -75,6 +88,7 @@ describe('syncPackageJson', () => {
 		expect(result.errors).toEqual([]);
 		expect(JSON.parse(readFileSync(packageJsonPath, 'utf8'))).toMatchObject({
 			dependencies: { foo: '2.0.0', locked: '1.0.0' },
+			peerDependencies: { peer: '>=1.0.0 <2' },
 		});
 	});
 
@@ -88,10 +102,16 @@ describe('syncPackageJson', () => {
 		writeJson(path.join(root, 'package.json'), {
 			name: 'root',
 			dependencies: { missing: '1.0.0' },
+			peerDependencies: { missingPeer: '>=1 <2' },
 		});
 
 		const result = syncPackageJson({ write: false, rootPath: root });
 		expect(result.errors).toEqual([
+			{
+				name: 'missingPeer',
+				path: path.join(root, 'package.json'),
+				type: 'peerDependencies',
+			},
 			{
 				name: 'missing',
 				path: path.join(root, 'package.json'),

@@ -24,8 +24,13 @@
     "@stackory/backend-platform": "workspace:*",
     "@stackory/backend-utils": "workspace:*",
     "@stackory/utils": "workspace:*",
-    "@stackory/constants": "workspace:*",
-    "hono": "4.12.18"
+    "@stackory/constants": "workspace:*"
+  },
+  "peerDependencies": {
+    "hono": ">=4.12.0 <5"
+  },
+  "devDependencies": {
+    "hono": "4.12.19"
   },
   "repository": {
     "type": "git",

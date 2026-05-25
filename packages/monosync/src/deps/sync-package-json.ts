@@ -4,6 +4,7 @@ import path from 'node:path';
 import { getConfigPath, loadConfig } from '../config/load-config.js';
 import type {
 	DependencySection,
+	DependencySectionName,
 	MonosyncError,
 	PackageChange,
 	PackageJson,
@@ -56,7 +57,7 @@ function syncSection({
 	errors,
 	changes,
 }: {
-	section: 'dependencies' | 'devDependencies';
+	section: DependencySectionName;
 	packageJson: PackageJson;
 	newPackageJson: PackageJson;
 	packageJsonPath: string;
@@ -114,6 +115,7 @@ export function syncPackageJson({
 	const config = loadConfig(rootPath, configPath);
 	const dependencies = config.dependencies ?? {};
 	const devDependencies = config.devDependencies ?? {};
+	const peerDependencies = config.peerDependencies ?? {};
 	const packages = readPackages(rootPath);
 	const packageJsons: Array<{ path: string; packageJson: PackageJson }> = [];
 	const errors = checkDuplicateConfigEntries(
@@ -124,6 +126,7 @@ export function syncPackageJson({
 	const changes: PackageChange[] = [];
 	const usedDeps = new Set<string>();
 	const usedDevDeps = new Set<string>();
+	const usedPeerDeps = new Set<string>();
 
 	for (const workspacePackage of Object.values(packages)) {
 		const packageJsonPath = path.join(workspacePackage.path, 'package.json');
@@ -132,6 +135,9 @@ export function syncPackageJson({
 
 		for (const name of Object.keys(packageJson.devDependencies ?? {})) {
 			usedDevDeps.add(name);
+		}
+		for (const name of Object.keys(packageJson.peerDependencies ?? {})) {
+			usedPeerDeps.add(name);
 		}
 		for (const name of Object.keys(packageJson.dependencies ?? {})) {
 			usedDeps.add(name);
@@ -143,6 +149,16 @@ export function syncPackageJson({
 			newPackageJson,
 			packageJsonPath,
 			configSection: devDependencies,
+			errors,
+			changes,
+		});
+
+		syncSection({
+			section: 'peerDependencies',
+			packageJson,
+			newPackageJson,
+			packageJsonPath,
+			configSection: peerDependencies,
 			errors,
 			changes,
 		});
@@ -170,6 +186,9 @@ export function syncPackageJson({
 		...Object.keys(devDependencies)
 			.filter((name) => !usedDevDeps.has(name))
 			.map((name) => ({ name, section: 'devDependencies' as const })),
+		...Object.keys(peerDependencies)
+			.filter((name) => !usedPeerDeps.has(name))
+			.map((name) => ({ name, section: 'peerDependencies' as const })),
 	];
 
 	if (write && errors.length === 0) {

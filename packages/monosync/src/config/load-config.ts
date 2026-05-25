@@ -19,6 +19,7 @@ export function loadConfig(
 	return {
 		dependencies: {},
 		devDependencies: {},
+		peerDependencies: {},
 		...config,
 	};
 }

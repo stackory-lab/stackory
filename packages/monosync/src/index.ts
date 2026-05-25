@@ -13,6 +13,7 @@ export type {
 	AutoUpdateChange,
 	AutoUpdateResult,
 	DependencySection,
+	DependencySectionName,
 	MonosyncConfig,
 	MonosyncConfigOptions,
 	MonosyncError,

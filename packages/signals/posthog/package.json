@@ -37,7 +37,21 @@
     "check:dep": "depcruise --config .dependency-cruiser.mjs src"
   },
   "dependencies": {
-    "@stackory/signals-core": "workspace:*",
+    "@stackory/signals-core": "workspace:*"
+  },
+  "peerDependencies": {
+    "posthog-js": ">=1.373.0 <2",
+    "posthog-node": ">=5.34.0 <6"
+  },
+  "peerDependenciesMeta": {
+    "posthog-js": {
+      "optional": true
+    },
+    "posthog-node": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
     "posthog-js": "1.373.5",
     "posthog-node": "5.34.2"
   },

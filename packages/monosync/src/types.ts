@@ -27,6 +27,7 @@ export type MonosyncConfig = {
 	config?: MonosyncConfigOptions;
 	dependencies?: DependencySection;
 	devDependencies?: DependencySection;
+	peerDependencies?: DependencySection;
 };
 
 export type PackageJson = {
@@ -34,8 +35,14 @@ export type PackageJson = {
 	workspaces?: string[] | { packages?: string[] };
 	dependencies?: Record<string, string>;
 	devDependencies?: Record<string, string>;
+	peerDependencies?: Record<string, string>;
 	[key: string]: unknown;
 };
+
+export type DependencySectionName =
+	| 'dependencies'
+	| 'devDependencies'
+	| 'peerDependencies';
 
 export type WorkspacePackage = {
 	name: string;
@@ -47,7 +54,7 @@ export type PackageChange = {
 	name: string;
 	from: string;
 	to: string;
-	section: 'dependencies' | 'devDependencies';
+	section: DependencySectionName;
 };
 
 export type MonosyncError = {
@@ -69,7 +76,7 @@ export type AutoUpdateResult = {
 
 export type UnusedDep = {
 	name: string;
-	section: 'dependencies' | 'devDependencies';
+	section: DependencySectionName;
 };
 
 export type SyncPackageJsonResult = {

@@ -36,7 +36,8 @@ Options:
     "allowDowngrade": false
   },
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {},
+  "peerDependencies": {}
 }
 ```
 
@@ -58,6 +59,9 @@ Dependency values can be strings, locked objects, or arrays:
   }
 }
 ```
+
+`--auto` updates only `dependencies` and `devDependencies`. Peer dependency
+ranges are validated during sync, but are not auto-updated to exact versions.
 
 ## Development
 
