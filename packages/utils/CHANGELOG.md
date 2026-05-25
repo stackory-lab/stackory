@@ -1,5 +1,16 @@
 # @stackory/utils
 
+## 1.2.0
+
+### Minor Changes
+
+- 16d88e9: Fix peerDependencies
+
+### Patch Changes
+
+- Updated dependencies [16d88e9]
+  - @stackory/constants@1.2.0
+
 ## 1.1.0
 
 ### Minor Changes

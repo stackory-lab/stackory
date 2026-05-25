@@ -1,5 +1,11 @@
 # @stackory/monosync
 
+## 1.2.0
+
+### Minor Changes
+
+- 16d88e9: Fix peerDependencies
+
 ## 1.1.0
 
 ### Minor Changes
