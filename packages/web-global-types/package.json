@@ -1,21 +1,21 @@
 {
-	"name": "@stackory/web-global-types",
-	"version": "1.1.0",
-	"types": "index.d.ts",
-	"files": [
-		"index.d.ts"
-	],
-	"exports": {
-		".": {
-			"types": {
-				"default": "./index.d.ts"
-			}
-		},
-		"./package.json": "./package.json"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/stackory-lab/stackory",
-		"directory": "packages/web-global-types"
-	}
+  "name": "@stackory/web-global-types",
+  "version": "1.1.0",
+  "types": "index.d.ts",
+  "files": [
+    "index.d.ts"
+  ],
+  "exports": {
+    ".": {
+      "types": {
+        "default": "./index.d.ts"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stackory-lab/stackory",
+    "directory": "packages/web-global-types"
+  }
 }
