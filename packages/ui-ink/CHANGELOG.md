@@ -1,5 +1,11 @@
 # @stackory/ui-ink
 
+## 2.2.0
+
+### Minor Changes
+
+- 16d88e9: Fix peerDependencies
+
 ## 2.1.0
 
 ### Minor Changes
