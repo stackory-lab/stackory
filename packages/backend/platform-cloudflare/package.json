@@ -20,12 +20,15 @@
     "check:dep": "depcruise --config .dependency-cruiser.mjs src"
   },
   "dependencies": {
-    "@sentry/cloudflare": "10.53.1",
     "@stackory/backend-platform": "workspace:*",
     "@stackory/constants": "workspace:*",
     "@stackory/backend-utils": "workspace:*"
   },
+  "peerDependencies": {
+    "@sentry/cloudflare": ">=10.53.0 <11"
+  },
   "devDependencies": {
+    "@sentry/cloudflare": "10.53.1",
     "@cloudflare/workers-types": "4.20260518.1"
   },
   "repository": {

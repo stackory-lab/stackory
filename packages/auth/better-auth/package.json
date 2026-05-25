@@ -86,11 +86,17 @@
     "check:dep": "depcruise --config .dependency-cruiser.mjs src"
   },
   "dependencies": {
-    "@better-auth/oauth-provider": "1.6.11",
     "@stackory/auth-core": "workspace:*",
     "@stackory/contracts": "workspace:*",
-    "better-auth": "1.6.11",
     "zod": "4.4.3"
+  },
+  "peerDependencies": {
+    "@better-auth/oauth-provider": ">=1.6.0 <2",
+    "better-auth": ">=1.6.0 <2"
+  },
+  "devDependencies": {
+    "@better-auth/oauth-provider": "1.6.11",
+    "better-auth": "1.6.11"
   },
   "repository": {
     "type": "git",

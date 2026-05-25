@@ -39,6 +39,9 @@ describe('autoUpdateConfig', () => {
 				foo: '1.0.0',
 				locked: { version: '1.0.0', locked: true },
 			},
+			peerDependencies: {
+				peerOnly: '>=1.0.0 <2',
+			},
 		});
 		const fetchMock = vi.fn().mockResolvedValue({
 			json: () => Promise.resolve(registryMeta('2.0.0')),
@@ -57,6 +60,9 @@ describe('autoUpdateConfig', () => {
 			devDependencies: {
 				foo: '2.0.0',
 				locked: { version: '1.0.0', locked: true },
+			},
+			peerDependencies: {
+				peerOnly: '>=1.0.0 <2',
 			},
 		});
 	});
