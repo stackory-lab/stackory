@@ -26,6 +26,9 @@ importers:
       '@stackory/monosync':
         specifier: workspace:*
         version: link:packages/monosync
+      '@stackory/sync-agent-context':
+        specifier: workspace:*
+        version: link:packages/sync-agent-context
       dependency-cruiser:
         specifier: 17.4.0
         version: 17.4.0
@@ -175,6 +178,12 @@ importers:
       '@stackory/contracts':
         specifier: workspace:*
         version: link:../contracts
+    devDependencies:
+      '@types/node':
+        specifier: 25.8.0
+        version: 25.8.0
+
+  packages/sync-agent-context:
     devDependencies:
       '@types/node':
         specifier: 25.8.0
