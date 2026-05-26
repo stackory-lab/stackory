@@ -1,0 +1,3 @@
+[submodule "stackory-skills"]
+	path = stackory-skills
+	url = git@github.com:stackory-lab/skills.git
