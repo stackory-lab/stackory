@@ -1,4 +1,4 @@
-# @common/sync-ai-context
+# @stackory/sync-agent-context
 
 Configuration-driven generator for AI context files such as `AGENTS.md`,
 `CLAUDE.md`, `GEMINI.md`, and canonical context documents. It assembles Markdown
@@ -15,15 +15,10 @@ check whether they are already up to date.
   Node standard APIs.
 - Preserve deterministic output: same config and fragments must generate the same
   files.
-- Run `pnpm run build`, `pnpm run check:type`, and `pnpm run check:test` before
-  publishing or wiring into another package.
-
----
-
 ## Public API
 
 ```typescript
-import { defineConfig, syncAiContext } from '@common/sync-ai-context'
+import { defineConfig, syncAiContext } from '@stackory/sync-agent-context'
 
 const config = defineConfig({
   fragmentsDir: 'ai/fragments',
@@ -58,7 +53,7 @@ await syncAiContext({
 Create `ai-context.config.mjs` in the target repository:
 
 ```javascript
-import { defineConfig } from '@common/sync-ai-context'
+import { defineConfig } from '@stackory/sync-agent-context'
 
 export default defineConfig({
   fragmentsDir: 'ai/fragments',
@@ -76,8 +71,8 @@ export default defineConfig({
 Then run:
 
 ```bash
-sync-ai-context sync --config ai-context.config.mjs
-sync-ai-context check --config ai-context.config.mjs
+sync-agent-context sync --config ai-context.config.mjs
+sync-agent-context check --config ai-context.config.mjs
 ```
 
 `sync` writes generated files. `check` exits with a non-zero status when any
