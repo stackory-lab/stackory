@@ -19,11 +19,15 @@ packages:
   - packages/auth/core
   - packages/auth/better-auth
   - packages/sync-agent-context
+  - packages/workers-tooling
 minimumReleaseAge: 1440
 blockExoticSubdeps: true
 allowBuilds:
   core-js: false
   esbuild: false
+  lefthook: false
   msw: false
   nx: false
   protobufjs: false
+  sharp: false
+  workerd: false
