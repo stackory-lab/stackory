@@ -25,6 +25,7 @@ blockExoticSubdeps: true
 allowBuilds:
   core-js: false
   esbuild: false
+  lefthook: false
   msw: false
   nx: false
   protobufjs: false

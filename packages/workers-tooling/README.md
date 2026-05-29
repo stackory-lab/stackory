@@ -2,29 +2,34 @@
 
 Topology schema, config loading, validation, deploy, secret, and local D1 tooling for Cloudflare Workers projects.
 
+## Install
+
+```bash
+pnpm add -D @stackory/workers-tooling wrangler
+```
+
 ## Commands
 
 ```bash
 pnpm --filter @stackory/workers-tooling build
 pnpm --filter @stackory/workers-tooling check:type
-nx run @stackory/workers-tooling:check:worker-topology
-nx run @stackory/workers-tooling:print:worker-topology
 ```
 
-The command scripts route through the unified CLI entry:
+After installation, use the `workers-tooling` CLI:
 
 ```bash
-node --import tsx ./src/cli.ts validate
-node --import tsx ./src/cli.ts print
-node --import tsx ./src/cli.ts deploy staging --workers api,webhook --dry-run
-node --import tsx ./src/cli.ts secret rotate --secret API_TOKEN --env staging --dry-run --generate
-node --import tsx ./src/cli.ts d1 apply-local app-db
+workers-tooling validate
+workers-tooling print
+workers-tooling deploy staging --workers api,webhook --dry-run
+workers-tooling secret rotate --secret API_TOKEN --env staging --dry-run --generate
+workers-tooling d1 apply-local app-db
 ```
 
-Commands load topology from `workers-tooling.config.ts` by default. This
-repository keeps its topology in the root `workers-tooling.config.ts`; the
-package source does not embed repository-specific Worker, account, D1, KV,
-Queue, R2, or secret facts.
+Commands look for `workers-tooling.config.ts`, `workers-tooling.config.mjs`, or
+`workers-tooling.config.js` from the current working directory upward by default.
+Pass `--config <path>` for an explicit config file or `--root <path>` to choose a
+different starting directory for discovery. The package source does not embed
+repository-specific Worker, account, D1, KV, Queue, R2, or secret facts.
 
 External projects can define their own config:
 
@@ -72,23 +77,23 @@ export default defineWorkersTopology({
 Deploy all Workers in topology order:
 
 ```bash
-pnpm --filter @stackory/workers-tooling run deploy:staging
-pnpm --filter @stackory/workers-tooling run deploy:production
+workers-tooling deploy staging
+workers-tooling deploy production
 ```
 
 Deploy a specific subset. The provided IDs are validated, then filtered into
 topology order before publishing:
 
 ```bash
-pnpm --filter @stackory/workers-tooling run deploy -- staging --workers api,webhook
-pnpm --filter @stackory/workers-tooling run deploy -- production --workers api,worker-b,webhook
+workers-tooling deploy staging --workers api,webhook
+workers-tooling deploy production --workers api,worker-b,webhook
 ```
 
 Preview the resolved deploy order without publishing:
 
 ```bash
-pnpm --filter @stackory/workers-tooling run deploy -- staging --dry-run
-pnpm --filter @stackory/workers-tooling run deploy -- staging --workers webhook,api --dry-run
+workers-tooling deploy staging --dry-run
+workers-tooling deploy staging --workers webhook,api --dry-run
 ```
 
 Dry runs print the resolved deploy plan, including `command`, `args`, `cwd`,
@@ -97,25 +102,26 @@ Dry runs print the resolved deploy plan, including `command`, `args`, `cwd`,
 The deploy command stops on the first failed Worker deploy and prints a JSON
 summary with `successful`, `failed`, and `skipped` Worker IDs.
 
-In this repository, each Worker declares an Nx deploy command in the root
-`workers-tooling.config.ts`, so deploys run from the repository root:
+If a Worker declares a custom deploy command in `workers-tooling.config.ts`,
+deploys use that command instead of the default. For example, a topology can run
+an Nx deploy command from the repository root:
 
 ```bash
 npm run nx deploy:staging @worker/api
 npm run nx deploy:production @worker/api
 ```
 
-For external topology configs, Workers without an explicit `deploy` block default
-to:
+Workers without an explicit `deploy` block default to running Wrangler through
+the project package manager:
 
 ```bash
-wrangler deploy --env <env>
+pnpm exec wrangler deploy --env <env>
 ```
 
 ### Rotate worker secrets
 
 ```bash
-pnpm --filter @stackory/workers-tooling run rotate:secret -- --env production --workers api,webhook --secret WEBHOOK_SECRET --generate
+workers-tooling secret rotate --env production --workers api,webhook --secret WEBHOOK_SECRET --generate
 ```
 
 ### Apply local D1 migrations
@@ -124,8 +130,7 @@ Local D1 migration presets are read from `topology.d1MigrationPresets`. The
 tooling package does not own project-specific preset names.
 
 ```bash
-pnpm --filter @stackory/workers-tooling run apply-local-d1-migrations -- app-db
-node --import tsx ./src/cli.ts d1 apply-local app-db
+workers-tooling d1 apply-local app-db
 ```
 
 ## Scope

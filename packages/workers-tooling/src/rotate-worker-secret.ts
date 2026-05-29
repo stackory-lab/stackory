@@ -34,7 +34,7 @@ Options:
   --dry-run               Print the target workers without writing secrets.
   --list-workers          Print all eligible worker IDs and exit.
   --config <path>         Path to workers-tooling config.
-  --root <path>           Project root directory. Defaults to the config directory.
+  --root <path>           Starting directory for config discovery.
   --help                  Show this help text.
 
 Examples:

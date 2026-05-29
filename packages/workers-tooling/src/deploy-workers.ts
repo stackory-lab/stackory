@@ -67,7 +67,7 @@ Options:
   --workers <ids>  Comma-separated worker IDs to deploy in topology order.
   --dry-run     Print the deployment order without running deploy commands.
   --config <path>  Path to workers-tooling config.
-  --root <path>    Project root directory. Defaults to the config directory.
+  --root <path>    Starting directory for config discovery.
   --help        Show this help text.
 
 Examples:
@@ -179,8 +179,8 @@ const getWorkerDeployConfig = (
 	Pick<IWorkerDeployConfig, 'packageName' | 'requirePackageScript'> => {
 	const packageName = getWorkerPackageName(worker);
 	const config = worker.deploy ?? {};
-	const command = config.command ?? 'wrangler';
-	const args = config.args ?? ['deploy', '--env', envToken];
+	const command = config.command ?? 'pnpm';
+	const args = config.args ?? ['exec', 'wrangler', 'deploy', '--env', envToken];
 	const cwd = config.cwd ?? worker.dir;
 
 	return {

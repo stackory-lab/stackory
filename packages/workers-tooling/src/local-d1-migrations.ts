@@ -86,8 +86,10 @@ export const applyLocalD1Migrations = (input: {
 
 	try {
 		execFileSync(
-			'wrangler',
+			'pnpm',
 			[
+				'exec',
+				'wrangler',
 				'd1',
 				'migrations',
 				'apply',

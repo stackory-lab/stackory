@@ -142,20 +142,29 @@ export const loadWorkersToolingConfig = async (
 
 	return {
 		configPath: discoveredConfigPath,
-		rootDir: input.rootDir
-			? initialRootDir
-			: path.dirname(discoveredConfigPath),
+		rootDir:
+			explicitConfigPath && input.rootDir
+				? initialRootDir
+				: path.dirname(discoveredConfigPath),
 		topology,
 	};
 };
 
-const findConfigPath = async (rootDir: string) => {
-	for (const fileName of defaultConfigFileNames) {
-		const filePath = path.join(rootDir, fileName);
-		if (await fileExists(filePath)) {
-			return filePath;
-		}
-	}
+const findConfigPath = async (startDir: string) => {
+	let currentDir = startDir;
 
-	return undefined;
+	while (true) {
+		for (const fileName of defaultConfigFileNames) {
+			const filePath = path.join(currentDir, fileName);
+			if (await fileExists(filePath)) {
+				return filePath;
+			}
+		}
+
+		const parentDir = path.dirname(currentDir);
+		if (parentDir === currentDir) {
+			return undefined;
+		}
+		currentDir = parentDir;
+	}
 };
