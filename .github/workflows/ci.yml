@@ -18,7 +18,12 @@ jobs:
     steps:
       - uses: actions/checkout@v6
         with:
-          fetch-depth: 0
+          fetch-depth: 1
+      - name: Fetch main Branches
+        shell: bash
+        run: |
+          git fetch origin main --depth=1 
+          git branch -f main origin/main
       - uses: pnpm/action-setup@v6
       - uses: actions/setup-node@v6
         with:
