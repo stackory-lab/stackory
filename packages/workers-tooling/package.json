@@ -1,55 +1,55 @@
 {
-	"name": "@stackory/workers-tooling",
-	"version": "1.0.0",
-	"description": "Reusable Cloudflare Workers topology, deploy, secret, and local D1 tooling.",
-	"type": "module",
-	"publishConfig": {
-		"access": "public"
-	},
-	"types": "./dist/index.d.ts",
-	"exports": {
-		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.js"
-		},
-		"./config": {
-			"types": "./dist/config/index.d.ts",
-			"import": "./dist/config/index.js"
-		},
-		"./core": {
-			"types": "./dist/core/index.d.ts",
-			"import": "./dist/core/index.js"
-		},
-		"./wrangler": {
-			"types": "./dist/wrangler/index.d.ts",
-			"import": "./dist/wrangler/index.js"
-		}
-	},
-	"bin": {
-		"workers-tooling": "./dist/cli.js"
-	},
-	"files": [
-		"dist"
-	],
-	"scripts": {
-		"build": "rimraf ./dist && tsc -p ./tsconfig.build.json",
-		"clean": "rimraf ./node_modules dist",
-		"check:lint": "biome check --write",
-		"check:type": "tsc -p ./tsconfig.json --noEmit"
-	},
-	"dependencies": {
-		"jsonc-parser": "3.3.1"
-	},
-	"peerDependencies": {
-		"wrangler": ">=4.0.0 <5.0.0"
-	},
-	"devDependencies": {
-		"@types/node": "25.8.0",
-		"wrangler": "4.92.0"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/stackory-lab/stackory",
-		"directory": "packages/workers-tooling"
-	}
+  "name": "@stackory/workers-tooling",
+  "version": "1.0.0",
+  "description": "Reusable Cloudflare Workers topology, deploy, secret, and local D1 tooling.",
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./config": {
+      "types": "./dist/config/index.d.ts",
+      "import": "./dist/config/index.js"
+    },
+    "./core": {
+      "types": "./dist/core/index.d.ts",
+      "import": "./dist/core/index.js"
+    },
+    "./wrangler": {
+      "types": "./dist/wrangler/index.d.ts",
+      "import": "./dist/wrangler/index.js"
+    }
+  },
+  "bin": {
+    "workers-tooling": "./dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rimraf ./dist && tsc -p ./tsconfig.build.json",
+    "clean": "rimraf ./node_modules dist",
+    "check:lint": "biome check --write",
+    "check:type": "tsc -p ./tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "jsonc-parser": "3.3.1"
+  },
+  "peerDependencies": {
+    "wrangler": ">=4.0.0 <5.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "25.9.1",
+    "wrangler": "4.94.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stackory-lab/stackory",
+    "directory": "packages/workers-tooling"
+  }
 }
