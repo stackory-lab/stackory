@@ -30,7 +30,7 @@
     "hono": ">=4.12.0 <5"
   },
   "devDependencies": {
-    "hono": "4.12.22"
+    "hono": "4.12.23"
   },
   "repository": {
     "type": "git",
