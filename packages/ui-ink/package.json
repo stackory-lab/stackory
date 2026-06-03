@@ -10,7 +10,7 @@
     "check:dep": "depcruise --config .dependency-cruiser.mjs registry"
   },
   "dependencies": {
-    "ink": "7.0.3",
+    "ink": "7.0.4",
     "react": "19.2.6",
     "string-width": "8.2.1"
   },
