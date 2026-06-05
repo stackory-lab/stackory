@@ -1,7 +1,7 @@
 {
 	"$schema": "https://ui.shadcn.com/schema/registry.json",
 	"name": "stackory-ui-ink",
-	"homepage": "https://j-xzy.github.io/stackory",
+	"homepage": "https://stackory-lab.github.io/stackory",
 	"items": [
 		{
 			"name": "spinner",
@@ -58,7 +58,7 @@
 				"string-width"
 			],
 			"registryDependencies": [
-				"https://j-xzy.github.io/stackory/r/ui-ink/keyboard-provider.json"
+				"https://stackory-lab.github.io//stackory/r/ui-ink/keyboard-provider.json"
 			],
 			"files": [
 				{

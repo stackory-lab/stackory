@@ -1,15 +1,19 @@
 {
 	"$schema": "https://ui.shadcn.com/schema/registry.json",
 	"name": "stackory-ui-web",
-	"homepage": "https://j-xzy.github.io/stackory",
+	"homepage": "https://stackory-lab.github.io/stackory",
 	"items": [
 		{
 			"name": "coverflow",
 			"type": "registry:component",
 			"title": "Coverflow",
 			"description": "A 3D coverflow carousel component with keyboard navigation and customizable visual config.",
-			"dependencies": ["lucide-react"],
-			"registryDependencies": ["utils"],
+			"dependencies": [
+				"lucide-react"
+			],
+			"registryDependencies": [
+				"utils"
+			],
 			"files": [
 				{
 					"path": "registry/components/coverflow/index.ts",
@@ -48,8 +52,14 @@
 			"type": "registry:ui",
 			"title": "Markdown Content",
 			"description": "A markdown renderer with GFM and line break support, styled with Tailwind.",
-			"dependencies": ["react-markdown", "remark-gfm", "remark-breaks"],
-			"registryDependencies": ["utils"],
+			"dependencies": [
+				"react-markdown",
+				"remark-gfm",
+				"remark-breaks"
+			],
+			"registryDependencies": [
+				"utils"
+			],
 			"files": [
 				{
 					"path": "registry/components/ui/markdown-content.tsx",
