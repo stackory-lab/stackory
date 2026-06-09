@@ -19,8 +19,23 @@ import {
 	isLockedAtVersion,
 } from './format-version.js';
 
-function readPackageJson(filePath: string): PackageJson {
-	return JSON.parse(readFileSync(filePath, 'utf8')) as PackageJson;
+function detectIndent(content: string): string | number {
+	const match = content.match(/^([ \t]+)/m);
+	if (!match) return 2;
+	const indent = match[1];
+	if (indent[0] === '\t') return '\t';
+	return indent.length;
+}
+
+function readPackageJson(filePath: string): {
+	packageJson: PackageJson;
+	indent: string | number;
+} {
+	const content = readFileSync(filePath, 'utf8');
+	return {
+		packageJson: JSON.parse(content) as PackageJson,
+		indent: detectIndent(content),
+	};
 }
 
 function versionSpecKey(value: VersionSpec): string {
@@ -117,7 +132,11 @@ export function syncPackageJson({
 	const devDependencies = config.devDependencies ?? {};
 	const peerDependencies = config.peerDependencies ?? {};
 	const packages = readPackages(rootPath);
-	const packageJsons: Array<{ path: string; packageJson: PackageJson }> = [];
+	const packageJsons: Array<{
+		path: string;
+		packageJson: PackageJson;
+		indent: string | number;
+	}> = [];
 	const errors = checkDuplicateConfigEntries(
 		filePath,
 		dependencies,
@@ -130,7 +149,7 @@ export function syncPackageJson({
 
 	for (const workspacePackage of Object.values(packages)) {
 		const packageJsonPath = path.join(workspacePackage.path, 'package.json');
-		const packageJson = readPackageJson(packageJsonPath);
+		const { packageJson, indent } = readPackageJson(packageJsonPath);
 		const newPackageJson = { ...packageJson };
 
 		for (const name of Object.keys(packageJson.devDependencies ?? {})) {
@@ -176,6 +195,7 @@ export function syncPackageJson({
 		packageJsons.push({
 			path: workspacePackage.path,
 			packageJson: newPackageJson,
+			indent,
 		});
 	}
 
@@ -195,7 +215,7 @@ export function syncPackageJson({
 		for (const item of packageJsons) {
 			writeFileSync(
 				path.join(item.path, 'package.json'),
-				`${JSON.stringify(item.packageJson, null, 2)}\n`,
+				`${JSON.stringify(item.packageJson, null, item.indent)}\n`,
 			);
 		}
 	}
