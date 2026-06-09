@@ -1,5 +1,11 @@
 # @stackory/monosync
 
+## 1.2.1
+
+### Patch Changes
+
+- 2a3cd1b: fix indent
+
 ## 1.2.0
 
 ### Minor Changes
