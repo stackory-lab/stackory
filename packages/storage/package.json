@@ -57,5 +57,8 @@
     "type": "git",
     "url": "https://github.com/stackory-lab/stackory",
     "directory": "packages/storage"
+  },
+  "bugs": {
+    "url": "https://github.com/stackory-lab/stackory/issues"
   }
 }

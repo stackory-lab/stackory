@@ -35,5 +35,8 @@
     "type": "git",
     "url": "https://github.com/stackory-lab/stackory",
     "directory": "packages/backend/platform-cloudflare"
+  },
+  "bugs": {
+    "url": "https://github.com/stackory-lab/stackory/issues"
   }
 }

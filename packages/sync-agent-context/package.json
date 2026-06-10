@@ -36,5 +36,8 @@
     "type": "git",
     "url": "https://github.com/stackory-lab/stackory",
     "directory": "packages/sync-agent-context"
+  },
+  "bugs": {
+    "url": "https://github.com/stackory-lab/stackory/issues"
   }
 }
