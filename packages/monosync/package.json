@@ -39,5 +39,8 @@
     "type": "git",
     "url": "https://github.com/stackory-lab/stackory",
     "directory": "packages/monosync"
+  },
+  "bugs": {
+    "url": "https://github.com/stackory-lab/stackory/issues"
   }
 }
