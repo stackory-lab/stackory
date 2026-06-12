@@ -1,5 +1,11 @@
 # @stackory/monosync
 
+## 1.2.2
+
+### Patch Changes
+
+- bc9a839: support excludes options
+
 ## 1.2.1
 
 ### Patch Changes
