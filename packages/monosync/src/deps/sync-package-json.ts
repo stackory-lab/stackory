@@ -131,7 +131,7 @@ export function syncPackageJson({
 	const dependencies = config.dependencies ?? {};
 	const devDependencies = config.devDependencies ?? {};
 	const peerDependencies = config.peerDependencies ?? {};
-	const packages = readPackages(rootPath);
+	const packages = readPackages(rootPath, config.config?.excludes);
 	const packageJsons: Array<{
 		path: string;
 		packageJson: PackageJson;
