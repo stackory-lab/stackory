@@ -8,13 +8,28 @@ function readPackageJson(filePath: string): PackageJson {
 	return JSON.parse(readFileSync(filePath, 'utf8')) as PackageJson;
 }
 
+function shouldExcludePackage(packageDir: string, excludes: string[]): boolean {
+	const normalizedDir = packageDir.split(path.sep).join(path.posix.sep);
+	const packageJsonPath =
+		normalizedDir === '.'
+			? 'package.json'
+			: path.posix.join(normalizedDir, 'package.json');
+
+	return excludes.some(
+		(pattern) =>
+			path.matchesGlob(normalizedDir, pattern) ||
+			path.matchesGlob(packageJsonPath, pattern),
+	);
+}
+
 export function readPackages(
 	rootPath: string,
+	excludes: string[] = [],
 ): Record<string, WorkspacePackage> {
 	const packages: Record<string, WorkspacePackage> = {};
 	const rootPkgPath = path.join(rootPath, 'package.json');
 
-	if (existsSync(rootPkgPath)) {
+	if (existsSync(rootPkgPath) && !shouldExcludePackage('.', excludes)) {
 		const rootPkg = readPackageJson(rootPkgPath);
 		if (rootPkg.name) {
 			packages[rootPkg.name] = { name: rootPkg.name, path: rootPath };
@@ -24,6 +39,10 @@ export function readPackages(
 	for (const pattern of resolveWorkspaceGlobs(rootPath)) {
 		const matches = globSync(pattern, { cwd: rootPath });
 		for (const pkgDir of matches) {
+			if (shouldExcludePackage(pkgDir, excludes)) {
+				continue;
+			}
+
 			const packagePath = path.join(rootPath, pkgDir, 'package.json');
 			if (!existsSync(packagePath)) {
 				continue;

@@ -21,6 +21,7 @@ export type MonosyncConfigOptions = {
 	minAgeDaysIgnores?: string[];
 	retries?: number;
 	allowDowngrade?: boolean;
+	excludes?: string[];
 };
 
 export type MonosyncConfig = {

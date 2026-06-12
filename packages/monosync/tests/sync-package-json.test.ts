@@ -151,4 +151,55 @@ describe('syncPackageJson', () => {
 		const result = syncPackageJson({ write: false, rootPath: root });
 		expect(result.errors).toEqual([]);
 	});
+
+	it('ignores excluded package.json files', async () => {
+		const root = await mkdtemp(path.join(tmpdir(), 'monosync-'));
+		writeFileSync(
+			path.join(root, 'pnpm-workspace.yaml'),
+			'packages:\n  - packages/*\n  - submodule/packages/*\n',
+		);
+		writeJson(path.join(root, 'monosync.json'), {
+			config: {
+				excludes: ['submodule/packages/*'],
+			},
+			dependencies: {
+				foo: '2.0.0',
+			},
+		});
+		writeJson(path.join(root, 'package.json'), { name: 'root' });
+		mkdirSync(path.join(root, 'packages', 'a'), { recursive: true });
+		writeJson(path.join(root, 'packages', 'a', 'package.json'), {
+			name: 'package-a',
+			dependencies: { foo: '1.0.0' },
+		});
+		const excludedPackageJsonPath = path.join(
+			root,
+			'submodule',
+			'packages',
+			'b',
+			'package.json',
+		);
+		mkdirSync(path.dirname(excludedPackageJsonPath), { recursive: true });
+		writeJson(excludedPackageJsonPath, {
+			name: 'package-b',
+			dependencies: { missing: '1.0.0' },
+		});
+
+		const result = syncPackageJson({ write: true, rootPath: root });
+
+		expect(result.errors).toEqual([]);
+		expect(result.changes).toEqual([
+			{
+				file: path.join(root, 'packages', 'a', 'package.json'),
+				name: 'foo',
+				from: '1.0.0',
+				to: '2.0.0',
+				section: 'dependencies',
+			},
+		]);
+		expect(JSON.parse(readFileSync(excludedPackageJsonPath, 'utf8'))).toEqual({
+			name: 'package-b',
+			dependencies: { missing: '1.0.0' },
+		});
+	});
 });

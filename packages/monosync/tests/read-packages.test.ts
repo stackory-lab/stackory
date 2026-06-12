@@ -19,6 +19,11 @@ async function createWorkspace() {
 		path.join(root, 'packages', 'a', 'package.json'),
 		`${JSON.stringify({ name: 'package-a' }, null, 2)}\n`,
 	);
+	mkdirSync(path.join(root, 'submodule', 'packages', 'b'), { recursive: true });
+	writeFileSync(
+		path.join(root, 'submodule', 'packages', 'b', 'package.json'),
+		`${JSON.stringify({ name: 'package-b' }, null, 2)}\n`,
+	);
 	return root;
 }
 
@@ -26,6 +31,22 @@ describe('readPackages', () => {
 	it('reads root and pnpm workspace packages', async () => {
 		const root = await createWorkspace();
 		expect(readPackages(root)).toEqual({
+			root: { name: 'root', path: root },
+			'package-a': {
+				name: 'package-a',
+				path: path.join(root, 'packages', 'a'),
+			},
+		});
+	});
+
+	it('excludes packages matching config patterns', async () => {
+		const root = await createWorkspace();
+		writeFileSync(
+			path.join(root, 'pnpm-workspace.yaml'),
+			'packages:\n  - packages/*\n  - submodule/packages/*\n',
+		);
+
+		expect(readPackages(root, ['submodule/packages/*'])).toEqual({
 			root: { name: 'root', path: root },
 			'package-a': {
 				name: 'package-a',
