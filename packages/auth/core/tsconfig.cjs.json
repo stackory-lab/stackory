@@ -1,12 +1,12 @@
 {
-	"extends": "@infra/tsconfig-presets/lib.cjs.json",
+	"extends": "@stackory/tsconfig-presets/lib.cjs.json",
 	"compilerOptions": {
 		"composite": true,
 		"outDir": "./dist/cjs",
 		"rootDir": "./src",
 		"tsBuildInfoFile": "./dist/cjs/.tsbuildinfo",
 		"lib": ["ESNext"],
-		"types": ["@infra/types/base-web-standard"]
+		"types": ["@stackory/web-global-types"]
 	},
 	"include": ["./src"],
 	"exclude": ["node_modules", "dist", "**/*spec.ts", "**/*test.ts"]

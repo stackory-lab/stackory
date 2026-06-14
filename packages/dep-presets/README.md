@@ -1,4 +1,4 @@
-# @infra/dep-presets
+# @stackory/dep-presets
 
 ## Overview
 Dependency cruiser configuration presets for enforcing architecture boundaries and dependency rules across the monorepo.
@@ -7,7 +7,7 @@ Provides validation rules for circular dependencies, deprecated packages, orphan
 ## Import
 ```javascript
 // In .dependency-cruiser.mjs
-import defaultConfig from '@infra/dep-presets/default.mjs';
+import defaultConfig from '@stackory/dep-presets/default.mjs';
 
 export default {
   ...defaultConfig,
@@ -19,7 +19,7 @@ export default {
 
 ### Main Export: `defaultConfig`
 ```javascript
-import defaultConfig, { merge } from '@infra/dep-presets/default.mjs';
+import defaultConfig, { merge } from '@stackory/dep-presets/default.mjs';
 
 // Use default configuration
 export default defaultConfig;
@@ -136,7 +136,7 @@ dependency-cruiser --config .dependency-cruiser.mjs src/
 ### Custom Rules Extension
 ```javascript
 // .dependency-cruiser.mjs
-import defaultConfig from '@infra/dep-presets/default.mjs';
+import defaultConfig from '@stackory/dep-presets/default.mjs';
 import merge from 'lodash.merge';
 
 export default merge(defaultConfig, {
@@ -154,7 +154,7 @@ export default merge(defaultConfig, {
 ### Package-Specific Rules
 ```javascript
 // servers/user-center/.dependency-cruiser.mjs
-import baseConfig from '@infra/dep-presets/default.mjs';
+import baseConfig from '@stackory/dep-presets/default.mjs';
 
 export default {
   ...baseConfig,

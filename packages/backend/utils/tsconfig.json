@@ -1,5 +1,5 @@
 {
-	"extends": "@infra/tsconfig-presets/base.json",
+	"extends": "@stackory/tsconfig-presets/base.json",
 	"compilerOptions": {
 		"composite": true,
 		"module": "nodenext",
@@ -8,7 +8,7 @@
 			"ESNext"
 		],
 		"types": [
-			"@infra/types/base-web-standard"
+			"@stackory/web-global-types"
 		],
 	},
 	"include": [

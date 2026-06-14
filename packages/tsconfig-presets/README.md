@@ -1,4 +1,4 @@
-# @infra/tsconfig-presets
+# @stackory/tsconfig-presets
 
 ## Overview
 Shared TypeScript configuration presets for consistent compilation settings across the monorepo.
@@ -7,7 +7,7 @@ Provides base configurations for different target environments: Node.js, browser
 ## Import
 ```json
 {
-  "extends": "@infra/tsconfig-presets/base.json"
+  "extends": "@stackory/tsconfig-presets/base.json"
 }
 ```
 
@@ -18,7 +18,7 @@ Provides base configurations for different target environments: Node.js, browser
 #### `base.json` - Foundation Configuration
 ```json
 {
-  "extends": "@infra/tsconfig-presets/base.json"
+  "extends": "@stackory/tsconfig-presets/base.json"
 }
 ```
 - **Strict mode**: All strict type checking enabled
@@ -29,7 +29,7 @@ Provides base configurations for different target environments: Node.js, browser
 #### `lib.cjs.json` - CommonJS Libraries
 ```json
 {
-  "extends": "@infra/tsconfig-presets/lib.cjs.json"
+  "extends": "@stackory/tsconfig-presets/lib.cjs.json"
 }
 ```
 - **Module**: CommonJS output format
@@ -38,7 +38,7 @@ Provides base configurations for different target environments: Node.js, browser
 #### `lib.esm.json` - ES Module Libraries  
 ```json
 {
-  "extends": "@infra/tsconfig-presets/lib.esm.json"
+  "extends": "@stackory/tsconfig-presets/lib.esm.json"
 }
 ```
 - **Module**: ESNext with bundler resolution
@@ -59,7 +59,7 @@ Provides base configurations for different target environments: Node.js, browser
 ```json
 // common/utils/tsconfig.json
 {
-  "extends": "@infra/tsconfig-presets/lib.esm.json",
+  "extends": "@stackory/tsconfig-presets/lib.esm.json",
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": "./src"
@@ -70,7 +70,7 @@ Provides base configurations for different target environments: Node.js, browser
 ### Workspace References
 ```json
 {
-  "extends": "@infra/tsconfig-presets/base.json"
+  "extends": "@stackory/tsconfig-presets/base.json"
 }
 ```
 

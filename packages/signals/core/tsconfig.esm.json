@@ -1,5 +1,5 @@
 {
-	"extends": "@infra/tsconfig-presets/lib.esm.json",
+	"extends": "@stackory/tsconfig-presets/lib.esm.json",
 	"compilerOptions": {
 		"composite": true,
 		"outDir": "./dist/esm",
@@ -9,7 +9,7 @@
 			"ESNext"
 		],
 		"types": [
-			"@infra/types/base-web-standard"
+			"@stackory/web-global-types"
 		],
 	},
 	"include": [

@@ -1,3 +1,3 @@
-import getConfig from '@infra/dep-presets';
+import getConfig from '@stackory/dep-presets';
 
 export default getConfig();

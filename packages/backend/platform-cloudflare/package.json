@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@sentry/cloudflare": "10.56.0",
-    "@cloudflare/workers-types": "4.20260606.1"
+    "@cloudflare/workers-types": "4.20260607.1"
   },
   "repository": {
     "type": "git",

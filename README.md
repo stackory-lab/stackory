@@ -53,14 +53,7 @@ each package README.
   generates agent context files such as `AGENTS.md`, `CLAUDE.md`, and
   `GEMINI.md` from shared Markdown fragments.
 
-### Infra Packages
-
-- [`@infra/dep-presets`](infra/dep-presets/README.md)
-- [`@infra/tsconfig-presets`](infra/tsconfig-presets/README.md)
-- [`@infra/types`](infra/types/README.md)
-
 ## Skills
 
 Consumer-facing Codex/Claude Code skills live in the
 [`stackory-skills`](stackory-skills/README.md) submodule.
-

@@ -1,3 +1,0 @@
-{
-	"extends": "@infra/tsconfig-presets/base.json"
-}

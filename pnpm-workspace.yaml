@@ -1,7 +1,6 @@
 packages:
-  - infra/tsconfig-presets
-  - infra/dep-presets
   - infra/types
+  - packages/dep-presets
   - packages/monosync
   - packages/ui-web
   - packages/ui-ink
@@ -20,6 +19,7 @@ packages:
   - packages/auth/better-auth
   - packages/sync-agent-context
   - packages/workers-tooling
+  - packages/tsconfig-presets
 minimumReleaseAge: 1440
 blockExoticSubdeps: true
 allowBuilds:
