@@ -1,5 +1,11 @@
 # @stackory/web-global-types
 
+## 1.1.1
+
+### Patch Changes
+
+- 06db008: update dependencies
+
 ## 1.1.0
 
 ### Minor Changes

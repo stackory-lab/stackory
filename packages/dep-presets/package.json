@@ -1,6 +1,6 @@
 {
 	"name": "@stackory/dep-presets",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"main": "./default.mjs",
 	"scripts": {
 		"clean": "rimraf node_modules"

@@ -1,6 +1,6 @@
 {
   "name": "@stackory/workers-tooling",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Reusable Cloudflare Workers topology, deploy, secret, and local D1 tooling.",
   "type": "module",
   "publishConfig": {

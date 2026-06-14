@@ -1,5 +1,11 @@
 # @stackory/monosync
 
+## 1.2.3
+
+### Patch Changes
+
+- 06db008: update dependencies
+
 ## 1.2.2
 
 ### Patch Changes
