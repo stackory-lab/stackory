@@ -1,5 +1,5 @@
 {
-  "extends": "@infra/tsconfig-presets/lib.cjs.json",
+  "extends": "@stackory/tsconfig-presets/lib.cjs.json",
   "compilerOptions": {
     "composite": true,
     "outDir": "./dist/cjs",

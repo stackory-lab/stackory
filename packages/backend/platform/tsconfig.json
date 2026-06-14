@@ -1,8 +1,8 @@
 {
-	"extends": "@infra/tsconfig-presets/hono.json",
+	"extends": "@stackory/tsconfig-presets/hono.json",
 	"compilerOptions": {
 		"types": [
-			"@infra/types/base-web-standard"
+			"@stackory/web-global-types"
 		],
 		"paths": {
 			"~/*": [

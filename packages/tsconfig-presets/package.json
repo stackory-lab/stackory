@@ -1,0 +1,17 @@
+{
+	"name": "@stackory/tsconfig-presets",
+	"version": "0.0.1",
+	"description": "Shared TypeScript configurations (tsconfig) for the monorepo.",
+	"files": [
+		"base.json",
+		"hono.json",
+		"lib.cjs.json",
+		"lib.esm.json",
+		"react.json"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/stackory-lab/stackory",
+		"directory": "packages/tsconfig-presets"
+	}
+}

@@ -1,5 +1,5 @@
 {
-	"extends": "@infra/tsconfig-presets/lib.esm.json",
+	"extends": "@stackory/tsconfig-presets/lib.esm.json",
 	"compilerOptions": {
 		"outDir": "../../dist/esm/web",
 		"rootDir": "./",

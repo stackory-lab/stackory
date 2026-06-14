@@ -1,5 +1,5 @@
 {
-	"extends": "@infra/tsconfig-presets/react.json",
+	"extends": "@stackory/tsconfig-presets/react.json",
 	"compilerOptions": {
 		"paths": {
 			"@/*": [

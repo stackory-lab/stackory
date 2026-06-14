@@ -17,18 +17,18 @@ importers:
       '@infra/dep-presets':
         specifier: workspace:*
         version: link:infra/dep-presets
-      '@infra/tsconfig-presets':
-        specifier: workspace:*
-        version: link:infra/tsconfig-presets
-      '@infra/types':
-        specifier: workspace:*
-        version: link:infra/types
       '@stackory/monosync':
         specifier: workspace:*
         version: link:packages/monosync
       '@stackory/sync-agent-context':
         specifier: workspace:*
         version: link:packages/sync-agent-context
+      '@stackory/tsconfig-presets':
+        specifier: workspace:*
+        version: link:packages/tsconfig-presets
+      '@stackory/web-global-types':
+        specifier: workspace:*
+        version: link:packages/web-global-types
       dependency-cruiser:
         specifier: 17.4.3
         version: 17.4.3
@@ -59,10 +59,6 @@ importers:
       lodash.merge:
         specifier: 4.6.2
         version: 4.6.2
-
-  infra/tsconfig-presets: {}
-
-  infra/types: {}
 
   packages/auth/better-auth:
     dependencies:
@@ -188,6 +184,8 @@ importers:
       '@types/node':
         specifier: 25.9.1
         version: 25.9.1
+
+  packages/tsconfig-presets: {}
 
   packages/ui-ink:
     dependencies:

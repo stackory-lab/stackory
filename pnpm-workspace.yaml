@@ -20,6 +20,7 @@ packages:
   - packages/auth/better-auth
   - packages/sync-agent-context
   - packages/workers-tooling
+  - packages/tsconfig-presets
 minimumReleaseAge: 1440
 blockExoticSubdeps: true
 allowBuilds:

@@ -1,3 +1,3 @@
 {
-	"extends": "@infra/tsconfig-presets/base.json"
+	"extends": "@stackory/tsconfig-presets/base.json"
 }

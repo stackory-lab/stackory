@@ -1,12 +1,12 @@
 {
-	"extends": "@infra/tsconfig-presets/lib.esm.json",
+	"extends": "@stackory/tsconfig-presets/lib.esm.json",
 	"compilerOptions": {
 		"composite": true,
 		"outDir": "./dist/esm",
 		"rootDir": "./src",
 		"tsBuildInfoFile": "./dist/esm/.tsbuildinfo",
 		"lib": ["ESNext"],
-		"types": ["@infra/types/base-web-standard"]
+		"types": ["@stackory/web-global-types"]
 	},
 	"include": ["./src"],
 	"exclude": ["node_modules", "dist", "**/*spec.ts", "**/*test.ts"]
