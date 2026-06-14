@@ -1,5 +1,14 @@
 # @stackory/auth-better-auth
 
+## 1.2.1
+
+### Patch Changes
+
+- 06db008: update dependencies
+- Updated dependencies [06db008]
+  - @stackory/auth-core@1.2.1
+  - @stackory/contracts@1.2.1
+
 ## 1.2.0
 
 ### Minor Changes

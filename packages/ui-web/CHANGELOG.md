@@ -1,5 +1,11 @@
 # @stackory/ui-web
 
+## 2.2.1
+
+### Patch Changes
+
+- 06db008: update dependencies
+
 ## 2.2.0
 
 ### Minor Changes

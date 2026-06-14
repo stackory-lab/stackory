@@ -1,6 +1,6 @@
 {
   "name": "@stackory/sync-agent-context",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "bin": {
     "sync-agent-context": "./dist/cjs/cli.js"
   },

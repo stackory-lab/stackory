@@ -1,5 +1,16 @@
 # @stackory/backend-hono
 
+## 1.2.1
+
+### Patch Changes
+
+- 06db008: update dependencies
+- Updated dependencies [06db008]
+  - @stackory/backend-platform@1.2.1
+  - @stackory/backend-utils@1.2.1
+  - @stackory/constants@1.2.1
+  - @stackory/utils@1.2.1
+
 ## 1.2.0
 
 ### Minor Changes
