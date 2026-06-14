@@ -1,4 +1,4 @@
-import getConfig from '@infra/dep-presets';
+import getConfig from '@stackory/dep-presets';
 
 const config = getConfig();
 

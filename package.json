@@ -16,7 +16,7 @@
 	"devDependencies": {
 		"@biomejs/biome": "2.4.16",
 		"@changesets/cli": "2.31.0",
-		"@infra/dep-presets": "workspace:*",
+		"@stackory/dep-presets": "workspace:*",
 		"@stackory/tsconfig-presets": "workspace:*",
 		"@stackory/web-global-types": "workspace:*",
 		"@stackory/monosync": "workspace:*",

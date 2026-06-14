@@ -1,0 +1,20 @@
+{
+	"name": "@stackory/dep-presets",
+	"private": true,
+	"version": "0.0.1",
+	"main": "./default.mjs",
+	"scripts": {
+		"clean": "rimraf node_modules"
+	},
+	"files": [
+		"default.mjs"
+	],
+	"dependencies": {
+		"lodash.merge": "4.6.2"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/stackory-lab/stackory",
+		"directory": "packages/dep-presets"
+	}
+}

@@ -1,7 +1,6 @@
 packages:
-  - infra/tsconfig-presets
-  - infra/dep-presets
   - infra/types
+  - packages/dep-presets
   - packages/monosync
   - packages/ui-web
   - packages/ui-ink

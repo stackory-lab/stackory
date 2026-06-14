@@ -36,7 +36,7 @@
 		"posthog-node": ">=5.34.0 <6"
 	},
 	"devDependencies": {
-		"@infra/dep-presets": "workspace:*",
+		"@stackory/dep-presets": "workspace:*",
 		"@stackory/monosync": "workspace:*",
 		"@stackory/web-global-types": "workspace:*",
 		"@stackory/sync-agent-context": "workspace:*",
