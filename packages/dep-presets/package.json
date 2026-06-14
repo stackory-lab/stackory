@@ -1,6 +1,5 @@
 {
 	"name": "@stackory/dep-presets",
-	"private": true,
 	"version": "0.0.1",
 	"main": "./default.mjs",
 	"scripts": {
