@@ -3,6 +3,18 @@
 	"name": "stackory-ui-ink",
 	"homepage": "https://stackory-lab.github.io/stackory",
 	"items": [
+	  {
+			"name": "use-list-navigation",
+			"type": "registry:hook",
+			"title": "Use list navigation",
+			"files": [
+				{
+					"path": "registry/components/hooks/use-list-navigation.ts",
+					"type": "registry:ui",
+					"target": "@hooks/use-list-navigation.tsx"
+				}
+			]
+	  },
 		{
 			"name": "spinner",
 			"type": "registry:ui",
@@ -16,6 +28,22 @@
 					"path": "registry/components/ui/spinner.tsx",
 					"type": "registry:ui",
 					"target": "@ui/spinner.tsx"
+				}
+			]
+		},
+		{
+			"name": "toast",
+			"type": "registry:ui",
+			"title": "Ink Toast",
+			"description": "A terminal toast component.",
+			"dependencies": [
+				"ink"
+			],
+			"files": [
+				{
+					"path": "registry/components/ui/toast.tsx",
+					"type": "registry:ui",
+					"target": "@ui/toast.tsx"
 				}
 			]
 		},
