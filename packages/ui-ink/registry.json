@@ -58,7 +58,7 @@
 				"string-width"
 			],
 			"registryDependencies": [
-				"https://stackory-lab.github.io//stackory/r/ui-ink/keyboard-provider.json"
+				"https://stackory-lab.github.io/stackory/r/ui-ink/keyboard-provider.json"
 			],
 			"files": [
 				{
