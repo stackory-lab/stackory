@@ -11,7 +11,7 @@
 				{
 					"path": "registry/components/hooks/use-list-navigation.ts",
 					"type": "registry:ui",
-					"target": "@hooks/use-list-navigation.tsx"
+					"target": "@hooks/use-list-navigation.ts"
 				}
 			]
 	  },
