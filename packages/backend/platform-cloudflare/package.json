@@ -28,8 +28,8 @@
     "@sentry/cloudflare": ">=10.53.0 <11"
   },
   "devDependencies": {
-    "@sentry/cloudflare": "10.56.0",
-    "@cloudflare/workers-types": "4.20260607.1"
+    "@sentry/cloudflare": "10.57.0",
+    "@cloudflare/workers-types": "4.20260612.1"
   },
   "repository": {
     "type": "git",
