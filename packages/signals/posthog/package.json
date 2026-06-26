@@ -52,8 +52,8 @@
     }
   },
   "devDependencies": {
-    "posthog-js": "1.386.6",
-    "posthog-node": "5.36.17"
+    "posthog-js": "1.390.2",
+    "posthog-node": "5.38.0"
   },
   "repository": {
     "type": "git",
