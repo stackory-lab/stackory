@@ -44,8 +44,8 @@
     "wrangler": ">=4.0.0 <5.0.0"
   },
   "devDependencies": {
-    "@types/node": "25.9.3",
-    "wrangler": "4.101.0"
+    "@types/node": "26.0.1",
+    "wrangler": "4.105.0"
   },
   "repository": {
     "type": "git",
