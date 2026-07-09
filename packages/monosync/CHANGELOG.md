@@ -1,5 +1,11 @@
 # @stackory/monosync
 
+## 1.2.4
+
+### Patch Changes
+
+- 908d739: Relese
+
 ## 1.2.3
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @stackory/backend-platform-cloudflare
 
+## 1.2.2
+
+### Patch Changes
+
+- 908d739: Relese
+
 ## 1.2.1
 
 ### Patch Changes
