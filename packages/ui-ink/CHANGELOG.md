@@ -1,5 +1,11 @@
 # @stackory/ui-ink
 
+## 2.2.2
+
+### Patch Changes
+
+- 908d739: Relese
+
 ## 2.2.1
 
 ### Patch Changes

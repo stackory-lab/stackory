@@ -1,5 +1,11 @@
 # @stackory/sync-agent-context
 
+## 1.0.2
+
+### Patch Changes
+
+- 908d739: Relese
+
 ## 1.0.1
 
 ### Patch Changes
