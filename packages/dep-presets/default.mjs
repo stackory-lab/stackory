@@ -29,6 +29,7 @@ const defaultConfig = {
 					'[.]d[.]ts$', // TypeScript declaration files
 					'(^|/)tsconfig[.]json$', // TypeScript config
 					'(^|/)(?:babel|webpack)[.]config[.](?:js|cjs|mjs|ts|cts|mts|json)$', // other configs
+					'[.](?:spec|test)[.](?:js|mjs|cjs|jsx|ts|mts|cts|tsx)$', // spec/test entry files (run by the test runner, never imported)
 				],
 			},
 			to: {},
@@ -383,8 +384,30 @@ const defaultConfig = {
 	},
 };
 
-function getConfig(config) {
-	return merge({}, defaultConfig, config);
+/**
+ * Merge a project's dependency-cruiser config over these defaults.
+ *
+ * IMPORTANT: `lodash.merge` deep-merges arrays *by index*. For dependency-cruiser
+ * rule lists that is wrong and dangerous — a project's Nth rule would be fused
+ * into the default's Nth rule. E.g. a custom rule at index 1 silently inherits
+ * the default `no-orphans` rule's `from.orphan:true` (making it fire on every
+ * orphan module under a different name), and a custom rule's `to` corrupts a
+ * default rule's `to`. Rule lists are additive, so `forbidden` / `allowed` /
+ * `required` are concatenated (defaults first, then the project's rules) rather
+ * than index-merged. Everything else (notably `options`) still deep-merges.
+ */
+function getConfig(config = {}) {
+	const merged = merge({}, defaultConfig, config);
+	for (const key of ['forbidden', 'allowed', 'required']) {
+		const base = defaultConfig[key] ?? [];
+		const extra = config[key] ?? [];
+		if (base.length > 0 || extra.length > 0) {
+			// merge({}, rule) deep-clones each rule so the shared `defaultConfig`
+			// is never mutated by a caller tweaking the returned config.
+			merged[key] = [...base, ...extra].map((rule) => merge({}, rule));
+		}
+	}
+	return merged;
 }
 
 export default getConfig;

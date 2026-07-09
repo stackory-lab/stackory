@@ -30,7 +30,7 @@
     "check:dep": "depcruise --config .dependency-cruiser.mjs src"
   },
   "devDependencies": {
-    "@types/node": "26.0.1"
+    "@types/node": "26.1.0"
   },
   "repository": {
     "type": "git",
