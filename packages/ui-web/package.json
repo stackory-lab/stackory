@@ -16,7 +16,7 @@
     "react-markdown": "10.1.0",
     "remark-gfm": "4.0.1",
     "remark-breaks": "4.0.0",
-    "lucide-react": "1.23.0"
+    "lucide-react": "1.24.0"
   },
   "devDependencies": {
     "@types/react": "19.2.17",
