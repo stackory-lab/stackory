@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "@types/node": "26.1.1",
-    "wrangler": "4.112.0"
+    "wrangler": "4.114.0"
   },
   "repository": {
     "type": "git",
