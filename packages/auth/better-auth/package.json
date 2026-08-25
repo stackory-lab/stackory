@@ -95,8 +95,8 @@
     "better-auth": ">=1.6.0 <2"
   },
   "devDependencies": {
-    "@better-auth/oauth-provider": "1.6.25",
-    "better-auth": "1.6.25"
+    "@better-auth/oauth-provider": "1.7.0",
+    "better-auth": "1.7.0"
   },
   "repository": {
     "type": "git",
